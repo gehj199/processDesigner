@@ -153,7 +153,6 @@ define(function (require, exports, module) {
       );
     var children=[{
       "name": "extensionElements",
-      "variableChildren": true,
       "children": [
         displayName.get(designer),
         note.get(designer),
