@@ -103,6 +103,7 @@ define(function(require, exports, module) {
 
     require('./node/gateway/gateway');
     require('./node/gateway/exclusiveGateway');
+    require('./node/gateway/parallelGateway');
     require('./node/gateway/inclusiveGateway');
     require('./node/extension/textAnnotation');
     require('./node/extension/undefinedNode');

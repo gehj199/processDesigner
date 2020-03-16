@@ -91,32 +91,6 @@ define(function (require, exports, module) {
   var returnElement = require('../mixins/return');
 
   ScriptTaskShape.getProperty = function (designer,options) {
-    // function setIo(){
-    //   if(options && options.property){
-    //     var children=options.property.children;
-    //     var ioSpec;
-    //     children.forEach(function (child, i) {
-    //     if (child.name === 'ioSpecification') {
-    //       ioSpec = child;
-    //       ioIndex = i;
-    //     }
-    //   });
-    //     ioSpecification.beforeImport(ioSpec);
-    //     if(ioSpec && ioSpec.children && ioSpec.children.length!=0){
-    //       for(var i=0;i<ioSpec.children.length;i++)
-    //         if(ioSpec.children[i].children)
-    //         for(var j=0;j<ioSpec.children[i].children.length;j++){
-    //           var editor2=new Object(),editor3=new Object();
-    //           editor2.type='combobox';
-    //           editor2.options=designer.getOption('dataType');
-    //           editor3.type='checkbox';
-    //           ioSpec.children[i].children[j].attributes[2].editor=editor2;
-    //           ioSpec.children[i].children[j].attributes[3].editor=editor3;
-    //       }
-    //     }
-    //   }
-    // }
-    // setTimeout(setIo,500);
     var attrs = attributes.get();
     attrs.push({
       "name": 'isForCompensation',

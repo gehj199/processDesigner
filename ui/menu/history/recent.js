@@ -19,7 +19,9 @@ define(function (require, exports, module) {
 
     var recentList = [];
     var getUrl = designer.getOption('draftUrl');
+    var allDraft=designer.getOption('allDraft');
     initRecentList();
+    setTimeout(freshRecentList,5000);
 
     function initRecentList() {
       if (getUrl) {
@@ -29,7 +31,22 @@ define(function (require, exports, module) {
           type: "get",
           showProgressbar: false,
           success: function (data, textStatus) {
-            recentList = data;
+            if(data)
+            recentList.push(data);
+            renderList();
+          }
+        });
+      }
+    }
+    function freshRecentList() {
+      if (allDraft) {
+        $.ajax({
+          url: allDraft,
+          async: true,
+          type: "get",
+          showProgressbar: false,
+          success: function (data, textStatus) {
+            recentList=data;
             renderList();
           }
         });
@@ -87,7 +104,6 @@ define(function (require, exports, module) {
 
     function renderList() {
       $ul.empty();
-
       recentList.forEach(function (item) {
         if (item.discard === true) return;
 

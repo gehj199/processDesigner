@@ -121,9 +121,14 @@ define(function (require, exports, module) {
         editor2.options=dataType;
         var editor3=new Object();
         editor3.type='checkbox';
-        input.attributes[0].editor=editor0;
-        input.attributes[2].editor=editor2;
-        input.attributes[3].editor=editor3;
+        for(var i=0;i<input.attributes.length;i++){
+          if(input.attributes[i].name=='id')
+            input.attributes[i].editor=editor0;
+          else  if(input.attributes[i].name=='itemSubject')
+            input.attributes[i].editor=editor2;
+          else  if(input.attributes[i].name=='optional')
+            input.attributes[i].editor=editor3;
+        }
         children.push(input);
       });
       json.children = children;

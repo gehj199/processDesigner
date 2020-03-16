@@ -34,6 +34,13 @@ define(function(require, exports, module) {
       outlineType: 'exclusiveGateway'
     });
 
+    var parallelGatewayOutline = designer.getOutlineManager('parallelGateway');
+    var parallelGateway = parallelGatewayOutline.create(fakeNode, box);
+    parallelGatewayOutline.doUpdate(parallelGateway, fakeNode, box);
+    parallelGateway.setAttr('transform', 'translate(7, 5)');
+    parallelGateway.setData('options', {
+      outlineType: 'parallelGateway'
+    });
     // var inclusiveGatewayOutline = designer.getOutlineManager('inclusiveGateway');
     // var inclusiveGateway = inclusiveGatewayOutline.create(fakeNode, box);
     // inclusiveGatewayOutline.doUpdate(inclusiveGateway, fakeNode, box);
@@ -45,7 +52,7 @@ define(function(require, exports, module) {
     var $nodeSelect = $dragbutton.generate(
       'AppendRootNode',
       //gateway, exclusiveGateway, inclusiveGateway
-      [exclusiveGateway], {
+      [exclusiveGateway,parallelGateway], {
       onShow: function() {
         $tabs.node.getWidgets().forEach(function(widget) {
           if (widget !== this && widget.getType() === 'SelectMenu') {

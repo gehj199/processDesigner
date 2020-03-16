@@ -14,6 +14,10 @@ define(function(require, exports, module) {
 
     Module.register('HistoryModule', function() {
         return {
+            'commandShortcutKeys': {
+                'undo': 'normal::ctrl+z',
+                'redo': 'normal::ctrl+y'
+            },
             'commands': {
                 "undo": kity.createClass("UndoCommand", {
                     base: Command,
@@ -41,11 +45,6 @@ define(function(require, exports, module) {
                             0 : -1;
                     }
                 })
-            },
-
-            'commandShortcutKeys': {
-                'undo': 'normal::ctrl+z',
-                'redo': 'normal::ctrl+y'
             }
         };
     });

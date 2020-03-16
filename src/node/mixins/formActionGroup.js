@@ -5,11 +5,8 @@ define(function (require, exports, module) {
   function get(designer) {
     var defaultActions = designer.getOption('defaultActions');
     var children = [];
-    var defaultActionsIncludeAssign=designer.exVariable[0].defaultActionsIncludeAssign;
-    var defaultActionsIncludeAddSignBefore=designer.exVariable[1].defaultActionsIncludeAddSignBefore;
     if(defaultActions && defaultActions.length > 0){
       defaultActions.forEach(function(action){
-        if((action.type!='assign' && action.type!='addsignbefore')||(action.type=='assign' && defaultActionsIncludeAssign==true) ||(action.type=='addsignbefore' && defaultActionsIncludeAddSignBefore==true))
         children.push(
           formAction.get(designer, action)
         );
